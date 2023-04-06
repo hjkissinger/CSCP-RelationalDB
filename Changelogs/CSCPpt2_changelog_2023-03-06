@@ -1,0 +1,244 @@
+# Changelog for Data Cleaning
+
+Create tables in R (see R-script).
+
+## Manually clean chemical table in excel
+
+Import chemical table into excel
+Use conditional formatting on the CasNumber column to highlight ‘Na’ in red.
+Look up chemical names’ cas numbers for highlighted Na rows.
+Duplicate the first sheet on a new spreadsheet.
+Highlight data to change into table for filtering.
+Sort ChemicalName in Ascending order.
+Identify chemicals with the same name or similar names.
+Change ChemicalName to be more specific if cas numbers are different.
+Cocamide diethanolamine
+966 = amides, coco
+967 = Amides, C12-18, N,N-bis(hydroxyethyl)
+968 = Ethanol, 2,2’-iminobis-,N-cocoalkyl derivs.
+Titanium dioxide
+871 = Titanium (IV) dioxide
+872 = Titanium (IV) dioxide, rutile
+1005 = Titanium dioxide enamel grade
+Checking the cas id of same/similarly named chemicals, standardize the ChemicalName. Record CasIds of the same chemical.
+Aloe vera, non-colorized whole leaf extract: 1178, 1108
+Carbon black (airborne, unbound particles of respirable size): 1104, 104, 726
+Coal Tar: 888, 895, 898, 731
+Cocamide diethanol amine (DEA): 969, 162, 1007, 986
+Coffee extract: 890, 732, 908, 909, 911
+Ethanol in alcoholic beverages: 1029, 1242
+Lauramide DEA: 1048, 964, 987
+Paraformaldehyde: 1068, 1069, 1075
+Retinyl palmitate: 933, 773, 938
+Talc: 894, 953, 955, 780, 943
+Titanium dioxide: 656, 1032
+Look for incorrect cas numbers
+1006 = methylene glycol not Interferon gamma (cas number = 463-57-0)
+Duplicate second sheet on a new spreadsheet.
+Remove duplicates of CasId and ChemicalName composite key. Keep lowest CasId number for identification.
+Aloe vera, non-colorized whole leaf extract: 1108
+Carbon black (airborne, unbound particles of respirable size): 104
+Coal Tar: 731
+Cocamide diethanol amine (DEA): 162
+Coffee extract: 732
+Ethanol in alcoholic beverages: 1029
+Lauramide DEA: 964
+Paraformaldehyde: 1068
+Retinyl palmitate: 773
+Talc: 780
+Titanium dioxide: 656
+Sort table by CasId in ascending order.
+Copy and paste cleaned chemical table into a new excel spreadsheet. Save as a .csv file.
+
+## Manually clean SubCategory table in excel
+
+Import SubCategory table into excel
+Highlight data to change into table for filtering.
+Sort SubCategory in Ascending order.
+Identify duplicates in the SubCategory column. Record SubCategoryId of the same chemical
+Hair Conditioners (leave in): 20, 33
+Hair Conditioners (rinse out): 21, 34
+Hair Shampoos (making a cosmetic claim): 25, 38
+Duplicate second sheet on a new spreadsheet.
+Remove duplicate SubCategory. Keep lowest SubCategoryId for identification.
+Hair Conditioners (leave in): 20
+Hair Conditioners (rinse out): 21
+Hair Shampoos (making a cosmetic claim): 25
+Sort table by SubCategoryId in ascending order.
+Copy and paste cleaned chemical table into a new excel spreadsheet. Save as a .csv file.
+
+## Manually clean PrimaryCategory table in excel
+
+Import PrimaryCategory table into excel
+Highlight data to change into table for filtering.
+Sort PrimaryCategory in Ascending order.
+Identify duplicates in the PrimaryCategory column. Record PrimaryCategoryId of the same chemical.
+No changes
+Duplicate second sheet on a new spreadsheet.
+Remove duplicate PrimaryCategory. Keep lowest PrimaryCategoryId for identification.
+No changes
+Sort table by PrimaryCategoryId in ascending order.
+Copy and paste cleaned primary category table into a new excel spreadsheet. Save as a .csv file.
+
+## Manually clean Company table
+
+Import company table into excel
+Duplicate the first sheet on a new spreadsheet.
+Use conditional formatting on the CompanyName column to highlight duplicates in red.
+Identify company names’ CompanyId for the highlighted rows. Record the CompanyIds for each.
+NYX Los Angeles, Inc.: 30, 896
+The Procter & Gamble Company: 86, 159, 899, 1036
+Regis Corporation: 89, 116, 165, 757
+Added Extras LLC: 118, 157, 716
+Giovanni Cosmetics, Inc.: 150, 1321
+Combe Incorporated: 172, 1254
+Unite Eurotherapy: 222, 867
+MAKE UP FOR EVER: 345, 1231
+Crabtree & Evelyn, Ltd.: 357, 976
+American International Industries: 372, 1148
+ORLY INTERNATIONAL: 396, 926
+Iredale Mineral Cosmetics: 427, 510
+Walmart: 534, 827
+Pharmaceutical Specialties, Inc.: 583, 840
+The Kroger Co.: 697, 811
+I Love Cosmetics Limited: 773, 950
+Alessandro International GmbH: 813, 920
+Enchante Accessories, Inc.: 819, 1009
+Too Faced Cosmetics: 943, 1103, 1213, 1242
+Perfect Angel Cosmetics & Health Co., Limited: 1044, 1164, 1187
+Herbswork CC: 1136, 1342
+Townley Inc.: 1140, 1212
+HUDA BEAUTY: 1204, 1207
+Alberto Culver USA, Inc.: 783, 204
+American Consumer Products, LLC: 844, 825
+Apollo Health and Beauty Care Inc.: 475, 1178
+Arcadia Beauty Labs, LLC: 1093, 1086
+Athena Cosmetics, Inc.: 190, 826
+Cover FX Skincare Inc.: 542, 1189
+Fresh, Inc.: 1215, 843, 570
+Interparfums Inc.: 984, 558, 1356
+Laboratories Dr N.G. Payot: 939, 655
+KMC EXIM CORPORATION/DASHING DIVA FRANCHISE CORP: 424, 310
+LVMH FRAGRANCE BRANDS: 373, 376
+Nail Alliance, LLC: 1033, 1035
+Shiseido Americas Corporation: 127, 1011, 351
+Stila Styles LLC: 1332, 291
+Vi-Jon, Inc.: 615, 1092
+Duplicate the second sheet on a new spreadsheet.
+Highlight data to change into table for filtering.
+Sort ChemicalName in Ascending order.
+Remove duplicate CompanyNames. Keep lowest CompanyId for identification.
+NYX Los Angeles, Inc.: 30
+The Procter & Gamble Company: 86
+Regis Corporation: 89
+Added Extras LLC: 118
+Giovanni Cosmetics, Inc.: 150
+Combe Incorporated: 172
+Unite Eurotherapy: 222
+MAKE UP FOR EVER: 345
+Crabtree & Evelyn, Ltd.: 357
+American International Industries: 372
+ORLY INTERNATIONAL: 396
+Iredale Mineral Cosmetics: 427
+Walmart: 534
+Pharmaceutical Specialties, Inc.: 583
+The Kroger Co.: 697
+I Love Cosmetics Limited: 773
+Alessandro International GmbH: 813
+Enchante Accessories, Inc.: 819
+Too Faced Cosmetics: 943
+Perfect Angel Cosmetics & Health Co., Limited: 1044
+Herbswork CC: 1136
+Townley Inc.: 1140
+HUDA BEAUTY: 1204
+Alberto Culver USA, Inc.: 204
+American Consumer Products, LLC: 825
+Apollo Health and Beauty Care Inc.: 475
+Arcadia Beauty Labs, LLC: 1086
+Athena Cosmetics, Inc.: 190
+Cover FX Skincare Inc.: 542
+Fresh, Inc.: 570
+Interparfums Inc.: 558
+KMC EXIM CORPORATION/DASHING DIVA FRANCHISE CORP: 310
+Laboratories Dr N.G. Payot: 655
+LVMH FRAGRANCE BRANDS: 373
+Nail Alliance, LLC: 1033
+Shiseido Americas Corporation: 127
+Stila Styles LLC: 291
+Vi-Jon, Inc.: 615
+Sort table by CompanyId in ascending order.
+Copy and paste cleaned company table into a new excel spreadsheet. Save as a .csv file.
+
+## Manually clean Variant table in excel
+
+Import Variant table into excel
+Duplicate the first sheet on a new spreadsheet.
+Sort CSFId in ascending order.
+Find and replace based on step 4 and the SubCategoryId based on step 6 of the SubCategory table cleaning instructions.
+Remove duplicates based on CSFId, CSF, and SubCategoryId.
+Copy and paste cleaned variant table into a new excel spreadsheet. Save as a .csv file.
+
+**Manually cleaning in excel took a long time (find and replace) -> create r-code to simplify procedure
+
+## Clean VarChemId table with R and Excel VarChemId table
+
+For the Old CasIds in step 9 replace with new CasId from step 12 of the Chemical table cleaning instructions. R-script:
+df1$column1[df1$column1 == old-number] <- new-number
+df1[grep(old-number, df1$column1),]
+Add Removed column for ChemicalDateRemoved binary.
+df_v3 <- df_v2 %>% 
+mutate(Removed = df_tbl_v2$ChemicalDateRemoved)
+df_v3$Removed[which(is.na(df_v3$Removed) == F)]<-‘1'
+df_v3$Removed[which(is.na(df_v3$Removed) == T)]<-'0'
+Export table from RStudio
+Import VarChemId table into excel.
+Duplicate the first sheet on a new spreadsheet.
+Remove duplicates based on ChemicalId, CasId, CSFId, CSFId.
+Copy and paste cleaned variant table into a new excel spreadsheet. Save as a .csv file.
+
+Clean SubCatChemId table with R and Excel
+For the Old CasIds in step 9 replace with new CasId from step 12 of the Chemical table cleaning instructions. R-script:
+df1$column1[df1$column1 == old-number] <- new-number
+df1[grep(old-number, df1$column1),]
+Add Removed column for ChemicalDateRemoved binary.
+df_v3 <- df_v2 %>% 
+mutate(Removed = df_tbl_v2$ChemicalDateRemoved)
+df_v3$Removed[which(is.na(df_v3$Removed) == F)]<-‘1'
+df_v3$Removed[which(is.na(df_v3$Removed) == T)]<-'0'
+Export table from RStudio
+Import VarChemId table into excel.
+Duplicate the first sheet on a new spreadsheet.
+Remove duplicates based on ChemicalId, CasId, CSFId, CSFId.
+Copy and paste cleaned variant table into a new excel spreadsheet. Save as a .csv file.
+
+## Clean Product table with R and Excel
+
+For the old CompanyId in step 4 replace with new CompanyId from step 8 of the Company table cleaning instructions. R-script:
+df1$column1[df1$column1 == old-number1] <- new-number
+df1[grep(old-number1, df1$column1),]
+For the old SubCategoryId in step 4 replace with new SubCategoryId from step 6 of the Company table cleaning instructions. R-script:
+df1$column2[df1$column2 == old-number2] <- new-number
+df1[grep(old-number2, df1$column2),]
+Add Discontinued column for ChemicalDateRemoved binary.
+df_v3 <- df_v2 %>% 
+mutate(Discontinued = df_tbl_v2$DiscontinuedDate)
+df_v3$Discontinued[which(is.na(df_v3$Discontinued) == F)]<-‘1'
+df_v3$Discontinued[which(is.na(df_v3$Discontinued) == T)]<-'0'
+Export table from RStudio
+Import VarChemId table into excel.
+Duplicate the first sheet on a new spreadsheet.
+Remove duplicates based on ChemicalId, CasId, CSFId, CSFId.
+Copy and paste cleaned variant table into a new excel spreadsheet. Save as a .csv file.
+
+
+## Upload tables into Tableau for integrity RDB check
+
+Take screenshot to confirm table connections.
+
+## Upload tables into BigQuery for analysis
+
+Check the data types one last time:
+ChemicalDateRemoved from SubCatChemId and VarChemId tables is string. Change to date.
+DiscontinuedDate from Product table is a string. Change to date.
+Add column with binary for ChemicalDateRemoved from SubCatChemId and VarChemId tables (1/0).
+Add column with binary for DiscontinuedDate from Product table
